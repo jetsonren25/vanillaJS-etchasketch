@@ -7,6 +7,7 @@
 
 #main-cont{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     border: 2px solid black;
     max-width: 50%;
@@ -33,10 +34,11 @@
 .block{
     border: 1px solid grey;
     padding: 2%;
-    width: cacl(100%/6);
-    flex: 1 0 auto;
-    transition: 1s;
+    flex: 1 1 auto;
+    max-height: 5px;
 }
+
+
 
 
 

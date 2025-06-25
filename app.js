@@ -27,6 +27,7 @@ function addBlock(num=16){
         })
         container.appendChild(block)
     }
+
 }
 
 function removeBlock(){
