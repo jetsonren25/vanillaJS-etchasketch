@@ -11,7 +11,10 @@ function createBlock(){
         let block = document.createElement('div')
         block.setAttribute('class','block')
         block.addEventListener('mouseover', (e) => e.target.style.backgroundColor = `${randomColor()}`)
-        block.addEventListener('mouseleave', (e) => e.target.style.backgroundColor = '')
+        block.addEventListener('mouseleave', (e) => {
+            e.target.style.transition = 'background-color 0.5s ease-in 0.8s'
+            e.target.style.backgroundColor = ''
+        })
         container.appendChild(block)
     }
 }
