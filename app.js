@@ -10,14 +10,18 @@ function createBlock(){
     for(let x = (16*16); x > 0; x--){
         let block = document.createElement('div')
         block.setAttribute('class','block')
-        block.addEventListener('mouseover', (e) => e.target.textContent = 'yesh')
-        block.addEventListener('mouseleave', (e) => e.target.textContent = '')
+        block.addEventListener('mouseover', (e) => e.target.style.backgroundColor = `${randomColor()}`)
+        block.addEventListener('mouseleave', (e) => e.target.style.backgroundColor = '')
         container.appendChild(block)
     }
 }
 
 const randomColor = () => {
-
+    let color = ''
+    for(let i = 0; i < 6; i++){
+        color += alphanum[Math.floor(Math.random() * 16)]
+    }
+    return `#${color}`
 }
 
 
