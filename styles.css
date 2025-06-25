@@ -6,7 +6,6 @@
 
 #main-cont{
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     border: 2px solid black;
     max-width: 50%;
@@ -15,7 +14,7 @@
 }
 
 .block{
-    border: 1px solid red;
+    border: 1px solid grey;
     padding: 2%;
     flex: 1 1 6%;
 }
