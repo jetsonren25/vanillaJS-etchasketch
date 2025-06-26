@@ -8,29 +8,41 @@ mainContainer.setAttribute('id','main-container')
 let uiContainer = document.createElement('div')
 uiContainer.setAttribute('id','ui-container')
 
-let container = document.createElement('div')
-container.setAttribute('id','sketch-container')
+let btnContainer = document.createElement('div')
+btnContainer.setAttribute('id','btn-container')
+
+let titleContainer = document.createElement('div')
+titleContainer.setAttribute('id','title-container')
+
+let title = document.createElement('p')
+title.textContent = 'Etch-a-Sketch'
+
+let sketchContainer = document.createElement('div')
+sketchContainer.setAttribute('id','sketch-container')
 
 let input = document.createElement('input')
+input.setAttribute('id','input')
+input.setAttribute('type','number')
+
+
+
 
 let newGameBtn = document.createElement('button')
 newGameBtn.textContent = 'New Game'
 
-let resetBtn = document.createElement('button')
+let submitBtn = document.createElement('button')
+submitBtn.textContent = 'Sketch'
 
-
-
-newGameBtn.addEventListener('click', () => {
-    let input = prompt('How many?')
+submitBtn.addEventListener('click', () => {
     removeBlock()
-    addTiles(parseInt(input))
+    addTiles(parseInt(document.querySelector('#input').value))
 })
 
 function addTiles(num=16){
     for(let x = num ; x > 0 ; x--){
         let row = document.createElement('div')
         row.setAttribute('class','row')
-        container.appendChild(row)
+        sketchContainer.appendChild(row)
         for(let y = num ; y > 0 ; y--){
             let tile = document.createElement('div')
             tile.setAttribute('class','tile')
@@ -42,8 +54,8 @@ function addTiles(num=16){
 function removeBlock(){
     let blockArr = document.querySelectorAll('.block')
     let rowArr = document.querySelectorAll('.row')
-    rowArr.forEach(r => container.removeChild(r))
-    blockArr.forEach(b => container.removeChild(b))
+    rowArr.forEach(r => sketchContainer.removeChild(r))
+    blockArr.forEach(b => sketchContainer.removeChild(b))
 }
 
 const randomColor = () => {
@@ -56,9 +68,19 @@ const randomColor = () => {
 body.appendChild(mainContainer)
 
 mainContainer.appendChild(uiContainer)
-mainContainer.appendChild(container)
+mainContainer.appendChild(sketchContainer)
 
-uiContainer.appendChild(newGameBtn)
-uiContainer.appendChild(input)
+uiContainer.appendChild(btnContainer)
+uiContainer.appendChild(titleContainer)
+
+titleContainer.appendChild(title)
+
+btnContainer.appendChild(newGameBtn)
+btnContainer.appendChild(submitBtn)
+btnContainer.appendChild(input)
+
+
+
+
 
 addTiles()
