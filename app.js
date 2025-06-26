@@ -1,27 +1,32 @@
-/**
- * yes. the idea is as follows : create a container with n rows. inside every row create n elements.  Remeber giving the container the correct dimentions so it's a square. Then you can experiment with flex.
-if you still have problems or doubts you can ask any question
- */
+let body = document.querySelector('body')
 
 let alphanum = 'abcdef0123456789'
 
-let body = document.querySelector('body')
+let mainContainer = document.createElement('div')
+mainContainer.setAttribute('id','main-container')
 
-let btn = document.createElement('button')
-btn.textContent = 'New Game'
+let uiContainer = document.createElement('div')
+uiContainer.setAttribute('id','ui-container')
 
 let container = document.createElement('div')
-container.setAttribute('id','container')
+container.setAttribute('id','sketch-container')
+
+let input = document.createElement('input')
+
+let newGameBtn = document.createElement('button')
+newGameBtn.textContent = 'New Game'
+
+let resetBtn = document.createElement('button')
 
 
-btn.addEventListener('click', () => {
-    let input = prompt('How many squares per side?')
+
+newGameBtn.addEventListener('click', () => {
+    let input = prompt('How many?')
     removeBlock()
     addTiles(parseInt(input))
-
 })
 
-function addTiles(num=40){
+function addTiles(num=16){
     for(let x = num ; x > 0 ; x--){
         let row = document.createElement('div')
         row.setAttribute('class','row')
@@ -29,7 +34,6 @@ function addTiles(num=40){
         for(let y = num ; y > 0 ; y--){
             let tile = document.createElement('div')
             tile.setAttribute('class','tile')
-            tile.textContent = 'tile'
             row.appendChild(tile)
         }
     }
@@ -49,6 +53,12 @@ const randomColor = () => {
 }
 
 
-body.appendChild(btn)
-body.append(container)
+body.appendChild(mainContainer)
+
+mainContainer.appendChild(uiContainer)
+mainContainer.appendChild(container)
+
+uiContainer.appendChild(newGameBtn)
+uiContainer.appendChild(input)
+
 addTiles()
