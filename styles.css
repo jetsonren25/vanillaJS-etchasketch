@@ -5,44 +5,43 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#btn{
+body button{
     font-size: 15px;
     color: #f8f1ff;
     padding: 10px;
     border-radius: 12px;
-    border: 1px solid #178e7c;
+    border: 1px solid #f8f1ff;
     background-color: #178e7c;
     margin: 20px 45px;
 }
 
-#btn:hover{
+body button:hover{
     background-color: #f8f1ff;
     color: #178e7c;
+    border: 1px solid #178e7c;
 }
 
-#main-cont{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
-    max-width: 50%;
-    max-height: 500px;
+#container{
+    border: 1px solid black;
+    width: 50%;
+    height: 500px;
     margin: auto;
-    margin-top: 8%;
+    margin-top: 20px;
 }
 
 .row{
+    display: flex;
+    gap: 1px; 
+    background-color: grey;
+    min-height: 35px;
+    width: 100%;
     border: 1px solid blue;
-    height: 100px;
-    width: 100px;
-    flex-grow: 1;
 }
 
-
-.block{
-    border: 1px solid #dddddd;
-    padding: 2%;
-    flex: 0 1 auto;
-    max-height: 5px;
+.tile{
+    color: red;
+    border: 1px solid white;
+    flex: 1;
 }
 
 
