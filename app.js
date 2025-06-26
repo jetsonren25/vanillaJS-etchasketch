@@ -33,7 +33,12 @@ submitBtn.textContent = 'Sketch'
 
 submitBtn.addEventListener('click', () => {
     removeBlock()
-    parseInt(document.querySelector('#input').value) < 100 ? addTiles(parseInt(document.querySelector('#input').value)): alert('Please choose a number under 100')
+    if(parseInt(document.querySelector('#input').value) < 100){
+        addTiles(parseInt(document.querySelector('#input').value))
+    } else { 
+        alert('Please choose a number under 100')
+        addTiles()
+    }
 })
 
 
