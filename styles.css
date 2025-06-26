@@ -22,7 +22,9 @@ body button:hover{
 }
 
 #container{
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid yellowgreen;
     width: 50%;
     height: 500px;
     margin: auto;
@@ -31,17 +33,16 @@ body button:hover{
 
 .row{
     display: flex;
-    gap: 1px; 
-    background-color: grey;
-    min-height: 35px;
+    flex-grow: 1;
+    background-color: black;
     width: 100%;
-    border: 1px solid blue;
+    justify-content: center;
 }
 
 .tile{
     color: red;
     border: 1px solid white;
-    flex: 1;
+    flex-grow: 1;
 }
 
 
