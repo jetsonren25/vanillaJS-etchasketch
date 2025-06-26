@@ -46,6 +46,9 @@ function addTiles(num=16){
         for(let y = num ; y > 0 ; y--){
             let tile = document.createElement('div')
             tile.setAttribute('class','tile')
+            tile.addEventListener('mouseover', (e) =>{
+               e.target.style.backgroundColor = `${randomColor()}`
+            })
             row.appendChild(tile)
         }
     }

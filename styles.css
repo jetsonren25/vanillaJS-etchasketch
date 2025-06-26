@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
     background-color: #178e7c;
 }
 
@@ -30,8 +30,11 @@ input{
 
 
 #title-container > p{
-    color: blue;
+    font-size: 20px;
+    color: #f8f1ff;
+    transform: rotate(20deg);
 } 
+
 
 
 #main-container{
@@ -61,7 +64,6 @@ input{
     align-items: center;
     justify-content: center;
     width: 40%;
-    border: 1px solid #f8f1ff;
 }
 
 #sketch-container{
