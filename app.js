@@ -24,9 +24,6 @@ let input = document.createElement('input')
 input.setAttribute('id','input')
 input.setAttribute('type','number')
 
-
-
-
 let newGameBtn = document.createElement('button')
 newGameBtn.textContent = 'New Game'
 
@@ -38,7 +35,19 @@ submitBtn.addEventListener('click', () => {
     addTiles(parseInt(document.querySelector('#input').value))
 })
 
-function addTiles(num=16){
+
+newGameBtn.addEventListener('click', () =>{
+    removeBlock()
+    addTiles()
+})
+
+uiContainer.addEventListener('mouseover', () => {
+    btnContainer.style.backgroundColor = `${randomColor()}`
+    uiContainer.style.backgroundColor = `${randomColor()}`
+    titleContainer.style.backgroundColor = `${randomColor()}`
+})
+
+const addTiles = (num=16) => {
     for(let x = num ; x > 0 ; x--){
         let row = document.createElement('div')
         row.setAttribute('class','row')
@@ -54,11 +63,9 @@ function addTiles(num=16){
     }
 }
 
-function removeBlock(){
-    let blockArr = document.querySelectorAll('.block')
+const removeBlock = () => {
     let rowArr = document.querySelectorAll('.row')
     rowArr.forEach(r => sketchContainer.removeChild(r))
-    blockArr.forEach(b => sketchContainer.removeChild(b))
 }
 
 const randomColor = () => {
@@ -81,9 +88,5 @@ titleContainer.appendChild(title)
 btnContainer.appendChild(newGameBtn)
 btnContainer.appendChild(submitBtn)
 btnContainer.appendChild(input)
-
-
-
-
 
 addTiles()
