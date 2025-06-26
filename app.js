@@ -22,6 +22,7 @@ sketchContainer.setAttribute('id','sketch-container')
 
 let input = document.createElement('input')
 input.setAttribute('id','input')
+input.setAttribute('name','sketch-input')
 input.setAttribute('type','number')
 
 let newGameBtn = document.createElement('button')
@@ -32,7 +33,7 @@ submitBtn.textContent = 'Sketch'
 
 submitBtn.addEventListener('click', () => {
     removeBlock()
-    addTiles(parseInt(document.querySelector('#input').value))
+    parseInt(document.querySelector('#input').value) < 100 ? addTiles(parseInt(document.querySelector('#input').value)): alert('Please choose a number under 100')
 })
 
 
