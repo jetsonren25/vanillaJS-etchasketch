@@ -13,8 +13,17 @@ container.setAttribute('id','main-cont')
 btn.addEventListener('click', () => {
     let input = prompt('How many squares per side?')
     removeBlock()
-    setTimeout(addBlock(parseInt(input),1000))
+    addRow(parseInt(input))
+    // addBlock(parseInt(input))
 })
+
+function addRow(num=16){
+    for(num ; num > 0; num--){
+        let row = document.createElement('div')
+        row.setAttribute('class', 'row')
+        container.appendChild(row)
+    }
+}
 
 function addBlock(num=16){
     for(let x = (num*num); x > 0; x--){
@@ -23,7 +32,6 @@ function addBlock(num=16){
         block.addEventListener('mouseover', (e) => e.target.style.backgroundColor = `${randomColor()}`)
         block.addEventListener('mouseleave', (e) => {
             e.target.style.transition = 'background-color 0.8s ease-in 1s'
-            e.target.style.backgroundColor = ''
         })
         container.appendChild(block)
     }
@@ -32,6 +40,8 @@ function addBlock(num=16){
 
 function removeBlock(){
     let blockArr = document.querySelectorAll('.block')
+    let rowArr = document.querySelectorAll('.row')
+    rowArr.forEach(r => container.removeChild(r))
     blockArr.forEach(b => container.removeChild(b))
 }
 
@@ -44,4 +54,4 @@ const randomColor = () => {
 
 body.appendChild(btn)
 body.append(container)
-addBlock()
+addRow()
